@@ -1,0 +1,4 @@
+If mongodb refuse to connect:
+sudo service mongod start
+
+npm run dev:server
