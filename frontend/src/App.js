@@ -1,11 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './layouts/Header'
 import Home from './views/Home'
-import SignIn from './views/SignIn'
+import Login from './features/login/featureComponents/Login'
 import User from './views/User'
-import Footer from './components/Footer'
+import Footer from './layouts/Footer'
+import RequireLogin from './features/login/featureComponents/RequireLogin'
 
 import { Outlet } from 'react-router-dom'
 
@@ -24,9 +25,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />} >
-          <Route path="home" element={<Home />}  />
-          <Route path="sign-in" element={<SignIn />}  />
-          <Route path="user" element={<User />}  />
+          {/* public routes */}
+          <Route index element={<Home />}  />
+          <Route path="login" element={<Login />}  />
+
+          {/* private routes */}
+          <Route element={<RequireLogin />}>
+            <Route path="user" element={<User />}  />
+          </Route>
+
         </Route>
       </Routes>
     </Router> 

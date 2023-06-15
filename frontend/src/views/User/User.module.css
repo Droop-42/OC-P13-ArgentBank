@@ -5,16 +5,19 @@
     font-weight: bold;
     padding: 10px;
   }
-  .bg_dark {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    flex: 1;
-    background-color: #12002b;
-    height: calc(100vh - 156px);
-  }
-  .header {
-    color: #fff;
-    margin-bottom: 2rem;
-  }
+.edit_off {
+  display: none;
+}
+.bg_dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  flex: 1;
+  background-color: #12002b;
+  height: calc(100vh - 156px);
+}
+.header {
+  color: #fff;
+  margin-bottom: 2rem;
+}

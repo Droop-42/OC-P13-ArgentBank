@@ -7,6 +7,7 @@
   }
   
   .main_nav a {
+    font-size: 18px;
     font-weight: bold;
     color: #2c3e50;
   }
@@ -16,8 +17,10 @@
   }
   
   .main_nav_item {
+    display: flex;
     text-decoration: none;
     margin-right: 0.5rem;
+    align-items: center;
   }
   
   .main_nav_item:hover {
@@ -36,4 +39,8 @@
   .iconUser {
     width: 24px;
     height: 24px;
+  }
+  .signIn {
+    display: flex;
+    flex-direction: row;
   }

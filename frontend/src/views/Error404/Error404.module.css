@@ -1,0 +1,27 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+}
+.txt {
+    display: flex;
+    flex-direction: column;
+    font-size: 120px;
+    align-items: center;
+    margin-top: 200px;
+    justify-self: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+
+}
+.txt2 {
+    display: flex;
+    font-size: 60px;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    vertical-align: middle;
+
+}
