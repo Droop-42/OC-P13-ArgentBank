@@ -110,7 +110,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /user/transaction:
+  /user/transaction/{timestamp}:
     get:
       security:
         - Bearer: []
@@ -132,9 +132,11 @@ paths:
             $ref: '#/definitions/ApiResponseTransactions'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
-  /user/transaction/checking:
+  /user/transaction/checking/{timestamp}:
     get:
       security:
         - Bearer: []
@@ -156,9 +158,11 @@ paths:
             $ref: '#/definitions/ApiResponseTransactions_checking'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
-  /user/transaction/saving:
+  /user/transaction/saving/{timestamp}:
     get:
       security:
         - Bearer: []
@@ -180,9 +184,11 @@ paths:
             $ref: '#/definitions/ApiResponseTransactions_saving'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
-  /user/transaction/card:
+  /user/transaction/card/{timestamp}:
     get:
       security:
         - Bearer: []
@@ -204,9 +210,11 @@ paths:
             $ref: '#/definitions/ApiResponseTransactions_card'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
-  /user/transactions/{transaction_account_type}/{transaction_id}:
+  /user/transactions/{transaction_account_type}/{transaction_id}/{timestamp}:
     get:
       security:
         - Bearer: []
@@ -228,6 +236,8 @@ paths:
             $ref: '#/definitions/ApiResponseTransactions_details'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
     put:
@@ -251,12 +261,14 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        '201':
           description: transaction details modified successully
           schema:
             $ref: '#/definitions/ApiResponseModif_details'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized
         '500':
           description: Internal Server Error
 

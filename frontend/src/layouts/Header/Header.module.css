@@ -60,3 +60,12 @@
     flex-direction: row;
     align-items: center;
   }
+
+  @media (max-width: 500px) {
+    .main_nav_item span {
+      display: none;
+    }
+    .raw span {
+      display: none;
+    }
+  }
