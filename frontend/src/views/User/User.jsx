@@ -17,18 +17,14 @@ export default function User() {
     const lName = useSelector(selectCurrentLastName)
     
     const [isEditing, setIsEditing] = useState(false)
-    const [firstName, setFirstName] = useState(fName ? fName : '...')
-    const [lastName, setLastName] = useState(lName ? lName : '...')
-    const [newFirstName, setNewFirstName] = useState(fName ? fName : '')//-----------to remove
-    const [newLastName, setNewLastName] = useState(lName ? lName : '')//-----------to remove
+    const [firstName, setFirstName] = useState(fName ? fName : '')
+    const [lastName, setLastName] = useState(lName ? lName : '')
     
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await edit({ firstName:newFirstName, lastName:newLastName }).unwrap()
-            dispatch(setUserName({ userFirstName:newFirstName, userLastName:newLastName })) 
-            setFirstName(newFirstName)
-            setLastName(newLastName)
+            await edit({ firstName:firstName, lastName:lastName }).unwrap() 
+            dispatch(setUserName({ userFirstName:firstName, userLastName:lastName }))
             setIsEditing(false)
             console.log('ok')
         } catch (err) {
@@ -51,41 +47,50 @@ export default function User() {
                     }
                 }
                 checkFlag();
-    }, [isSuccess]) //---------=>state!?
+    }, [isSuccess])
   
     
     const handleEditBtn = (e) => setIsEditing(isEditing ? false : true)
-    const handleFirstNameInput = (e) => { setNewFirstName(e.target.value) }
-    const handleLastNameInput = (e) => { setNewLastName(e.target.value) }
+    const handleCancelBtn = (e) => {
+        setIsEditing(isEditing ? false : true)
+        setFirstName(fName)
+        setLastName(lName)
+    }
+    const handleFirstNameInput = (e) => { setFirstName(e.target.value) }
+    const handleLastNameInput = (e) => { setLastName(e.target.value) }
         
     const content = isLoading ? <h1 className={styles.bg_dark}>Loading...</h1> : !isSuccess ? <h1 className={styles.bg_dark}>Something went wrong!</h1> : (
             <div >
                 <main className={styles.bg_dark}>
                     <div className={styles.header}>
-                        <h1>Welcome back<br />{firstName} {lastName}!</h1>
-                        <button className={styles.edit_button} onClick={handleEditBtn}>Edit Name</button>
+                        <h1>Welcome back</h1>
+                        <h1 className={!isEditing ? styles.edit_active  : styles.edit_off }>{firstName} {lastName}!</h1>
+                        <button className={!isEditing ? styles.edit_button : styles.edit_off } onClick={handleEditBtn}>Edit Name</button>
 
                         <form onSubmit={handleSubmit} className={isEditing ? styles.edit_active : styles.edit_off}>
-                            <div className={styles.input_wrapper}>
+                            <div className={styles.input_wrapper_left}>
                                 <input
+                                    id='id1'
                                     type="text"
-                                    value={newFirstName}
+                                    value={firstName}
                                     onChange={handleFirstNameInput}
                                     required 
                                 />
+                                <button type='submit' className={styles.ed_button} >Save</button>
+                            </div>
+                            <div className={styles.input_wrapper_right}>
                                 <input
+                                    id='id2'
                                     type="text"
                                     onChange={handleLastNameInput}
-                                    value={newLastName}
+                                    value={lastName}
                                     required
                                 />
+                                <button type="reset" className={styles.ed_button} onClick={handleCancelBtn}>Cancel</button> 
                             </div>
-                                <button type='submit' className={styles.sign_in_button} >Save</button>
-                                <button type="reset" className={styles.sign_in_button} onClick={handleEditBtn}>Cancel</button>       
+       
                         </form>
                     </div>
-                    <TransactionCard />
-                    <TransactionCard />
                     <TransactionCard />
                 </main>
             </div>      

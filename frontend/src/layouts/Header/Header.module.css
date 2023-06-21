@@ -10,10 +10,11 @@
     font-size: 18px;
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
   }
   
   .main_nav a.router_link_exact_active {
-    color: #42b983;
+    /*color: #42b983;*/
   }
   
   .main_nav_item {
@@ -21,10 +22,11 @@
     text-decoration: none;
     margin-right: 0.5rem;
     align-items: center;
+    text-decoration: none;
   }
   
   .main_nav_item:hover {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
   }
   
   .main_nav_logo {
@@ -43,4 +45,18 @@
   .signIn {
     display: flex;
     flex-direction: row;
+  }
+  .icon_off {
+    display: none;
+  }
+  .icon_logout {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+  }
+  .raw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }

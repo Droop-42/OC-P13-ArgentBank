@@ -1,14 +1,12 @@
 import styles from './FeatureCard.module.css'
 
-export default function Hero () {
+export default function Hero (props) {
+    const link = "../../assets/img/"+props.logo+".png"
     return (
         <div className={styles.feature_item} >
-          <img src="../../assets/img/icon-chat.png" alt="Chat Icon" className={styles.feature_icon}/>
-          <h3 className={styles.feature_item_title}>You are our #1 priority</h3>
-          <p>
-            Need to talk to a representative? You can get in touch through our
-            24/7 chat or through a phone call in less than 5 minutes.
-          </p>
+          <img src={link} alt="Chat Icon" className={styles.feature_icon}/>
+          <h3 className={styles.feature_item_title}>{props.title}</h3>
+          {props.children}
         </div>
     )
 }

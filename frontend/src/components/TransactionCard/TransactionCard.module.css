@@ -47,7 +47,9 @@
 
 .transaction_button {
     display: block;
-    width: 100%;
+    /*width: 100%;*/
+    max-width: 300px;
+    min-width: 160px;
     padding: 8px;
     font-size: 1.1rem;
     font-weight: bold;

@@ -14,8 +14,6 @@ export default function Header () {
     const dispatch = useDispatch()
     const [isLogged, setIsLogged] = useState()
 
-    //let user = ''
-    //if (email != null) { user = email.split('@')[0]}
 
     useEffect(() => {
         setIsLogged((token != null) ? true : false);
@@ -44,7 +42,12 @@ export default function Header () {
                         />
                         <span>{user}</span>
                     </Link>
-                    <Link to="/login" onClick={() => {logout()}} >
+                    <Link to="/login" onClick={() => {logout()}} className={styles.raw}>
+                        <img
+                            className={(token == null) ? styles.icon_off : styles.icon_logout}
+                            src="../../assets/img/logout.svg"
+                            alt="Argent Bank Logo"
+                        />
                         <span>{(token == null) ? 'Sign In' : 'Sign out'}</span>
                     </Link >
                 </div>

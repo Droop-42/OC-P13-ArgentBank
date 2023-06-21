@@ -8,6 +8,10 @@
 .edit_off {
   display: none;
 }
+.edit_active {
+  display: flex;
+  justify-content: center;
+}
 .bg_dark {
   display: flex;
   flex-direction: column;
@@ -20,4 +24,36 @@
 .header {
   color: #fff;
   margin-bottom: 2rem;
+}
+.input_wrapper_left {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.input_wrapper_right {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.input_wrapper_left  input {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+.input_wrapper_right  input {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.input_wrapper button {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+.ed_button {
+  padding: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+  width: 100px;
 }
