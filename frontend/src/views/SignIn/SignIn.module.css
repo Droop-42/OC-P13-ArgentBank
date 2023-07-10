@@ -5,7 +5,7 @@
   height: 100%;
   flex: 1;
   background-color: #12002b;
-  height: calc(100vh - 156px);
+  min-height: calc(100vh - 156px);
 }
 .sign_in_button {
   display: block;

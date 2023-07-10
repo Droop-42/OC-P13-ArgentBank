@@ -6,7 +6,7 @@ import styles from './Home.module.css'
 export default function Home() {
     
     return (
-        <div >
+        <div className={styles.homeBody}>
             <Hero />
             <div className={styles.features}>
                 <FeatureCard title={'You are our #1 priority'} logo={'icon-chat'}>
